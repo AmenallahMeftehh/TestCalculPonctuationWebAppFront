@@ -1,0 +1,24 @@
+<div class="container">
+  <h3 class=" title col-12">Calculate the number of punctuations in a text</h3>
+  <div class="row">
+        <form class="form-horizontal" [formGroup]="formText" novalidate (ngSubmit)="onCalculate(formText.valid, text)" novalidate>
+            <div class="form-group">
+
+              <div class="col-sm-10">
+                <textarea rows="10" cols="100" id="textId" formControlName="text" type="text"
+                          class="form-control" [(ngModel)]="text" title="Text"
+                          placeholder="Enter a text ..."></textarea>
+
+                <small class="text-danger" [hidden]="!formText.get('text').hasError('required') || (formText.controls.text.pristine && !submitted)">
+                  Text is required
+                </small>
+
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success">Calculate</button>
+        </form>
+  </div>
+  <div class="row">
+    <h3 *ngIf="punctuationsOccurrence != null"> the number of punctuations in a text is <span class="arrow">{{punctuationsOccurrence}}</span></h3>
+  </div>
+</div>
