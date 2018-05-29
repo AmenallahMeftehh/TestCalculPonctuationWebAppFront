@@ -28,7 +28,7 @@ export class CalculationComponent implements OnInit {
       // call service
       this.calculationService.getNumberOfPunctuations(text).subscribe(
         data => {
-          this.punctuationsOccurrence = data.value;
+          this.punctuationsOccurrence = data;
         },
         error => {
           alert('An Error occurred while calculating punctuations occurrence');
