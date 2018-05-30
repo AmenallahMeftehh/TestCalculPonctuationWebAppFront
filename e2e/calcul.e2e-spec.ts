@@ -22,11 +22,11 @@ describe('Calculate', () => {
 
     const calculateBox = element(by.css('textarea'));
 
-    calculateBox.sendKeys('lorem!.');
+    calculateBox.sendKeys('Lorem Ipsum has been the industry standard dummy text ever since the 1500s, it to make a type specimen book.');
 
     calculateButton.click().then(() => {
 
-      const result = element.all(by.css('app-text span'));
+      const result = element.all(by.css('app-calcul span'));
 
       expect(result.getText()).toEqual(['2']);
 
