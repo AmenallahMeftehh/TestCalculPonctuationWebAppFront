@@ -1,10 +1,10 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import 'rxjs/add/observable/of';
 import { CalculationComponent } from './calcul.component';
-import {CalculationService} from "./calculation.service";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
+import {CalculationService} from './calculation.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
 describe('CalculationComponent', () => {
   let calculComponent;
@@ -14,9 +14,9 @@ describe('CalculationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[FormsModule,ReactiveFormsModule,HttpClientModule],
+      imports: [FormsModule, ReactiveFormsModule, HttpClientModule],
       declarations: [ CalculationComponent ],
-      providers: [calculationService]
+      providers: [CalculationService]
     })
     .compileComponents();
   }));
@@ -25,7 +25,6 @@ describe('CalculationComponent', () => {
     fixture = TestBed.createComponent(CalculationComponent);
     calculationService = fixture.debugElement.injector.get(CalculationService);
     spy = spyOn(calculationService, 'getNumberOfPunctuations').and.returnValue(Observable.of([]));
-    fixture.detectChanges();
   });
 
   it('should call service with the right param', fakeAsync(() => {
